@@ -10,9 +10,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-// app.get("/api/test", async (req: Request, res: Response) => {
-//     res.json({ message: "Hello from express endpoint" });
-// });
+app.get("/api/test", async (req: Request, res: Response) => {
+    res.json({ message: "Hello from express endpoint" });
+});
 
 const PORT = process.env.PORT || 5001;  // Changed from 5000 to 5001
 app.listen(PORT, () => {
