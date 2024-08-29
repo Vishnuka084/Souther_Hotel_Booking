@@ -16,9 +16,18 @@ const userSchema = new mongoose.Schema({
     lastName: { type: String, required: true },
 });
 
+// userSchema.pre("save", async function (next) {
+//     if(this.isModified('password')){
+//         this.password = await bcrypt.hash(this.password);
+//     }
+//     next();
+// });
+
 userSchema.pre("save", async function (next) {
-    if(this.isModified('password')){
-        this.password = await bcrypt.hash(this.password);
+    const user = this as mongoose.Document & { password: string };
+    if (user.isModified('password')) {
+        // Passing 10 as the salt rounds
+        user.password = await bcrypt.hash(user.password, 10);
     }
     next();
 });
