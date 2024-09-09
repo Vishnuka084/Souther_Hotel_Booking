@@ -18,7 +18,7 @@ const AppContext = React.createContext<AppContext | undefined>(undefined);
 export const AppContextProvider = ({
   children
 }: {
-  children: React.ReactDOM;
+  children: React.ReactNode;
 }) => {
   const [toast, setToast] = useState<ToastMessage | undefined>(undefined);
 
@@ -45,7 +45,7 @@ export const AppContextProvider = ({
   );
 };
 export const useAppContext = () => {
-  const context = React.useContext(AppContext);
+  const context = useContext(AppContext);
   if (context === undefined) {
     throw new Error("useAppContext must be used within an AppContextProvider");
   }
