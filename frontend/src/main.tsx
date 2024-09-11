@@ -4,7 +4,6 @@ import App from "./App.tsx";
 import "./index.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { AppContextProvider } from "./contexts/AppContext.tsx";
-import React from "react";
 
 const queryClient = new QueryClient({
   defaultOptions: {
