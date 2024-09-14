@@ -15,6 +15,7 @@ import { UserType, HotelType } from "../shared/types";
     starRating: { type: Number, required: true, min: 1, max: 5 },
     imageUrls: [{ type: String, required: true }],
     lastUpdated: { type: Date, required: true },
+    
   });
 
 

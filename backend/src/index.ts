@@ -41,7 +41,11 @@ app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes );
-app.use("/api/my-hotels", myHotelRoutes)
+app.use("/api/my-hotels", myHotelRoutes);
+
+app.get("*", (req: Request, res: Response) => {
+    res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"));
+});
 
 const PORT = process.env.PORT || 5001;  // Changed from 5000 to 5001
 app.listen(PORT, () => {
