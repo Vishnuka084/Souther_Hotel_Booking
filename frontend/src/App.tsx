@@ -60,6 +60,14 @@ const App = () => {
               }
             />
             <Route
+              path="/edit-hotel/:hotelId"
+              element={
+                <Layout>
+                  <EditHotel />
+                </Layout>
+              }
+            />
+            <Route
               path="/my-hotels"
               element={
                 <Layout>
