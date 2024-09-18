@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import * as apiClient from "../api-client";
 import ManageHotelForm from "../forms/ManageHotelForm/ManageHotelForm";
@@ -14,7 +14,16 @@ const EditHotel = () => {
     }
   );
 
-  return <ManageHotelForm hotel={hotel} />;
+  const { mutate } = useMutation(apiClient.updateMyHotelId, {
+    onSuccess: () => {},
+    onError: () => {}
+  });
+
+  const handleSave = (hotelFormData: FormData) => {
+    mutate(hotelFormData);
+  };
+
+  return <ManageHotelForm hotel={hotel} onSave={handleSave} />;
 };
 
 export default EditHotel;
