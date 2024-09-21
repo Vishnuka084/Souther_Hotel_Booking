@@ -74,7 +74,7 @@ router.get("/search", async (req: Request, res: Response) => {
   });
 
 
-  const constructSearchQuery = (queryParams: any) => {
+const constructSearchQuery = (queryParams: any) => {
     let constructedQuery: any = {};
   
     if (queryParams.destination) {
@@ -128,4 +128,5 @@ router.get("/search", async (req: Request, res: Response) => {
   
     return constructedQuery;
   };
+
 export default router;
